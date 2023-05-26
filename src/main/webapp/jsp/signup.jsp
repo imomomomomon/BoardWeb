@@ -39,16 +39,8 @@
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script type="text/javascript">
 		$(function () {
-			checkSessionId();
+			$('#a_signup').click(checkInputValue);
 		})
-		function checkSessionId() {
-			let id = '${sessionScope.id}';
-			if(id === '') {
-				$('#a_signup').click(checkInputValue);
-			} else {
-				location.href = "${pageContext.request.contextPath}/jsp/board.jsp"
-			}
-		}
 		function checkInputValue() {
 			let form = $('form#form_register')[0];
 			if (form.id.value.length == 0) {
