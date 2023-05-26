@@ -3,23 +3,20 @@ package com.example.boardweb.dao.board;
 import com.example.boardweb.dao.Dao;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.HashMap;
-
-public class UpdateDao extends Dao {
-    private UpdateDao() {
+public class HitDao extends Dao {
+    private HitDao() {
         super();
     }
-
-    private static UpdateDao inst = null;
-    public static UpdateDao getInst() {
-        if(inst == null) inst = new UpdateDao();
+    private static HitDao inst = null;
+    public static HitDao getInst() {
+        if(inst == null) inst = new HitDao();
         return inst;
     }
 
-    public void UpdateBoardInfo(HashMap<String,Object> map) {
+    public int addHit(int no){
         SqlSession sqlSession = sessionFactory.openSession();
         try {
-            sqlSession.update("com.example.boardweb.bean.update",map);
+            return sqlSession.update("com.example.boardweb.bean.updateHit",no);
         } catch (Exception e) {
             sqlSession.rollback();
             e.printStackTrace();
@@ -27,5 +24,7 @@ public class UpdateDao extends Dao {
             sqlSession.commit();
             sqlSession.close();
         }
+
+        return 0;
     }
 }

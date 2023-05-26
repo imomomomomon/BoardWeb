@@ -47,7 +47,12 @@
 		let curPage;
 		$(function () {
 			{
-				$('#hidden_id').val("test1");//나중에 아이디값으로 바꿔야함
+				$('#hidden_id').val("${sessionScope.id}");
+				if($('#hidden_id').val() === '') {
+					alert("세션값이 만료되었습니다.");
+					location.href = "${pageContext.request.contextPath}/jsp/info.jsp?infoNo=${param.infoNo}";
+				}
+
 				write = '${param.state}';
 			}
 

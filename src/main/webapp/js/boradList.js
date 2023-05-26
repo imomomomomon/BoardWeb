@@ -28,14 +28,16 @@ let printList = function (jsondata) {
                 div_board_meta.appendChild(p_meta);
                 {
                     let i_meta = [];
-                    for(let i = 0; i < 2; i++){
+                    for(let i = 0; i < 3; i++){
                         i_meta[i] = document.createElement('i');
                         div_board_meta.appendChild(i_meta[i]);
                     }
                     i_meta[0].setAttribute("class","glyphicon glyphicon-user");
                     i_meta[0].innerHTML = jsondata.writer;
-                    i_meta[1].setAttribute("class","glyphicon glyphicon-time");
-                    i_meta[1].innerHTML = jsondata.regdate;
+                    i_meta[1].setAttribute("class","glyphicon glyphicon-ok");
+                    i_meta[1].innerHTML = jsondata.hit;
+                    i_meta[2].setAttribute("class","glyphicon glyphicon-time");
+                    i_meta[2].innerHTML = jsondata.regdate;
                 }
             }
         }

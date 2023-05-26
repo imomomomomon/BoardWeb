@@ -43,6 +43,11 @@
 	<script type="text/javascript">
 		let state;
 		$(function () {
+			//아이디 확인
+			let id = '${sessionScope.id}';
+			if(id === '')
+				$('a#a_write').hide();
+
 			getCategoryList();
 			{
 				state = "${sessionScope.state}";
@@ -206,7 +211,7 @@
 						class="glyphicon glyphicon-search" style="margin-right: 15px"></i>검색</a>
 				<a href="Javascript:btnList()" class="btn btn-primary btn-sm"><i
 						class="glyphicon glyphicon-blackboard" style="margin-right: 15px"></i>목록</a>
-				<a href="Javascript:btnInsert()" class="btn btn-primary btn-sm"><i
+				<a href="Javascript:btnInsert()" id="a_write" class="btn btn-primary btn-sm"><i
 						class="glyphicon glyphicon-pencil" style="margin-right: 15px"></i>쓰기</a>
 			</div>
 			<div id="list-group" class="list-group">

@@ -17,6 +17,8 @@ public class InfoController extends Controller {
             return;
         }
         int infoNo = Integer.parseInt(strTemp);
+        if(BoardListService.getInst().addHit(infoNo) == 0)
+            System.err.println("Hit 추가 실패");
         BoardBean bean = (BoardBean)BoardListService.getInst().getBoardInfo(infoNo);
 
         if(bean != null){

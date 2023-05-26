@@ -39,16 +39,26 @@
     <![endif]-->
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script type="text/javascript">
+		let id;
 		$(function () {
 			getInfo();
 			getEmpathyCnt();
-
-			$('#a_deleteBoard').click(function() {
-				let result = confirm('정말로 삭제하시겠습니까?');
-				if(result) {
-					deleteBoard();
+			//button
+			{
+				id = '${sessionScope.id}';
+				if(id !== '') {
+					$('a#a_updateBoard').click(btn_updateInfo);
+					$('a#a_deleteBoard').click(function() {
+						let result = confirm('정말로 삭제하시겠습니까?');
+						if(result) {
+							deleteBoard();
+						}
+					});
 				}
-			});
+				$('a#a_updateBoard').hide();
+				$('a#a_deleteBoard').hide();
+			}
+
 		})
 		function btn_updateInfo() {
 			location.href = "${pageContext.request.contextPath}/jsp/write.jsp?"
@@ -62,6 +72,10 @@
 				data:{'cmd':'getInfo','infoNo':infoNo},
 				dataType:'json',
 				success:function(data){
+					if(id === data[0].writer){
+						$('a#a_updateBoard').show();
+						$('a#a_deleteBoard').show();
+					}
 					setValueInInfo(data[0]);
 				},error:function(){
 					console.log('error : Get Info');
@@ -118,7 +132,6 @@
 				type:'POST',
 				data:{'cmd':'deleteInfo','no':infoNo},
 				success:function(data){
-					console.log(data);
 					if(data === '1')
 						location.href = "${pageContext.request.contextPath}/jsp/board.jsp";
 				},error:function(){
@@ -185,7 +198,7 @@
 			</div>
 			<div class="bottom" style="margin: 10px;margin-top: 20px; text-align: right">
 				<a href="${pageContext.request.contextPath}/jsp/board.jsp" class="btn btn-default btn-xs pull-left">목록으로</a>
-				<a href="javascript:btn_updateInfo()" class="btn btn-default btn-xs">수정</a>
+				<a href="#" id="a_updateBoard" class="btn btn-default btn-xs">수정</a>
 				<a href="#" id="a_deleteBoard" class="btn btn-default btn-xs">삭제</a>
 				<a href="#" class="btn btn-default btn-xs">답변</a>
 				<a href="#" class="btn btn-default btn-xs">스크랩</a> 

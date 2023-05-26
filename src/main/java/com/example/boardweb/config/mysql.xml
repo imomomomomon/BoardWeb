@@ -70,7 +70,8 @@
         where no = #{no}
     </update>
     <update id="updateHit" parameterType="java.lang.Integer">
-        update board set hit
+        update board set hit = hit+1
+        where no = #{no}
     </update>
 
     <insert id="insert" parameterType="com.example.boardweb.bean.BoardBean">

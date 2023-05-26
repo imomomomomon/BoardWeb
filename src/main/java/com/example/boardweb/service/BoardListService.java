@@ -44,4 +44,7 @@ public class BoardListService {
         return InsertDao.getInst().insertDao(obj);
     }
     public int deleteBoardInfo(int no) { return DeleteDao.getInst().deleteDao(no);}
+    public int addHit(int no) {
+        return HitDao.getInst().addHit(no);
+    }
 }
