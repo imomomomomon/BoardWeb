@@ -1,0 +1,34 @@
+[
+  {
+    "category_no": 1,
+    "category_name": "Etc"
+  },
+  {
+    "category_no": 2,
+    "category_name": "Java"
+  },
+  {
+    "category_no": 3,
+    "category_name": "Javascript"
+  },
+  {
+    "category_no": 4,
+    "category_name": "Html/CSS"
+  },
+  {
+    "category_no": 5,
+    "category_name": "Servlet"
+  },
+  {
+    "category_no": 6,
+    "category_name": "Spring"
+  },
+  {
+    "category_no": 7,
+    "category_name": "Mybatis"
+  },
+  {
+    "category_no": 8,
+    "category_name": "MySql"
+  }
+]
