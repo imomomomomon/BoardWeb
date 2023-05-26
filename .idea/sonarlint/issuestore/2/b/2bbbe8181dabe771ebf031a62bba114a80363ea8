@@ -1,0 +1,9 @@
+
+
+java:S1104
+"]Make sqlSessionFactory a static final constant or non-public and provide accessors if needed.(»Ä˜…úÿÿÿÿ8øˆÝ‘‚1
+Y
+java:S1444
+"7Make this "public static sqlSessionFactory" field final(»Ä˜…úÿÿÿÿ8øˆÝ‘‚1
+\
+java:S1118	":Add a private constructor to hide the implicit public one.(²¼èùúÿÿÿÿ8üˆÝ‘‚1

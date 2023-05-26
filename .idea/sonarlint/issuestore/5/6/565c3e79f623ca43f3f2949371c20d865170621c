@@ -1,0 +1,12 @@
+
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(æëïÿÿÿÿÿ8®õî‚1
+O
+java:S1199"-Extract this nested code block into a method.(ë”Àõûÿÿÿÿ8±õî‚1
+O
+java:S1199/"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8¸Š»ˆ„1
+O
+java:S11991"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8¸Š»ˆ„1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(“×·ôşÿÿÿÿ8şõî‚1
+[
+java:S2441#">Make "PageBean" serializable or don't store it in the session.(¹˜ï8ùœâ™ƒ1

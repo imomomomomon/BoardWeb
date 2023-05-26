@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.boardweb.bean">
+    <select id="select" parameterType="java.util.HashMap" resultType="com.example.boardweb.bean.BoardBean">
+        select no, category, writer, title, regdate, parent_no, hit
+        from (
+            select @rownum:=@rownum+1 inx,
+            no, category_name as category, writer, title, regdate, parent_no, hit
+            from board inner join board_category using (category_no)
+            where (@rownum:=0)=0
+        <if test="category !=null"> AND category_name = #{category}</if>
+        <if test="search !=null"> AND INSTR(title,#{search}) > 0</if>
+            order by no desc)a
+        where inx between #{start} and #{end}
+    </select>
+    <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(*)
+        from board inner join board_category using (category_no)
+        where no != 0
+        <if test="category !=null"> AND category_name = #{category}</if>
+        <if test="search !=null"> AND INSTR(title,#{search}) > 0</if>
+    </select>
+    <select id="selectCategory" resultType="java.lang.String">
+        select category_name
+        from board_category
+    </select>
+    <select id="info" parameterType="java.lang.Integer" resultType="com.example.boardweb.bean.BoardBean">
+        select no, category_name as category, writer, title, regdate, contents, hit, filename
+        from board inner join board_category using (category_no)
+        where no = #{no}
+    </select>
+    <select id="getCntEmp" parameterType="java.lang.Integer" resultType="com.example.boardweb.bean.EmpathyBean">
+        select cnt_like, cnt_dislike
+        from board_emphathy
+        where board_no = #{no}
+    </select>
+    <select id="getEmp" parameterType="java.lang.Integer" resultType="com.example.boardweb.bean.EmpathyBean">
+        select *
+        from board_emphathy
+        where board_no = #{no}
+    </select>
+    <select id="checkLogin" parameterType="com.example.boardweb.bean.UserBean" resultType="java.lang.String">
+        select id
+        from userid
+        where ID = #{id} and PASSWORD = #{password}
+    </select>
+
+    <update id="update" parameterType="java.util.HashMap">
+        update board
+        set
+            category_no = (select
+                               category_no
+                           from board_category
+                           where category_name = #{category}),
+            title = #{title},
+            <if test="filename != null">filename = #{filename},</if>
+        contents = #{contents}
+        where no = #{no}
+    </update>
+    <update id="updateEmp" parameterType="com.example.boardweb.bean.EmpathyBean">
+        update board_emphathy
+        set
+            cnt_like = #{cnt_like},
+            cnt_dislike = #{cnt_dislike},
+            arr_like = #{arr_like},
+            arr_dislike = #{arr_dislike}
+        where no = #{no}
+    </update>
+    <update id="updateHit" parameterType="java.lang.Integer">
+        update board set hit
+    </update>
+
+    <insert id="insert" parameterType="com.example.boardweb.bean.BoardBean">
+        insert into board(category_no,writer,title,contents
+        <if test="filename != null">,filename</if>)
+        values ((select category_no
+        from board_category
+        where category_name = #{category}
+        ),#{writer},#{title},#{contents}
+        <if test="filename != null">,#{filename}</if>)
+    </insert>
+
+    <insert id="insertEmp" parameterType="java.util.HashMap">
+        insert into board_emphathy(board_no)
+        values (#{no})
+    </insert>
+    <insert id="register" parameterType="com.example.boardweb.bean.UserBean">
+        insert into userid(ID,PASSWORD)
+        values (#{id},#{password})
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from board where no = #{no}
+    </delete>
+</mapper>

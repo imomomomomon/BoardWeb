@@ -1,0 +1,19 @@
+
+O
+java:S1199"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÅØñ”„1
+O
+java:S1199""-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÆØñ”„1
+O
+java:S11990"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8€“ú”„1
+O
+java:S1199>"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8€“ú”„1
+O
+java:S1199I"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8€“ú”„1
+^
+java:S22591"AA "NullPointerException" could be thrown; "inc" is nullable here.(›çßÈ8§“ú”„1
+c
+java:S2259K"AA "NullPointerException" could be thrown; "dec" is nullable here.(ü„Îÿÿÿÿÿ8§“ú”„1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.( ÕÛŸüÿÿÿÿ8©“ú”„1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(şí³é8ÜØñ”„1
+Z	java:S106L"9Replace this use of System.out or System.err by a logger.(‰íõ„øÿÿÿÿ8°“ú”„1

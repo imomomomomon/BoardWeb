@@ -1,0 +1,42 @@
+
+<	css:S4649‘"&Unexpected missing generic font family(ÉøÀÈ
+A	css:S4649Š3"&Unexpected missing generic font family(‰ù©åşÿÿÿÿ
+=	css:S4648l"#Unexpected duplicate name monospace(Á¯›»ùÿÿÿÿ
+J	css:S4661ó0"4Unexpected unknown media feature name "transform-3d"(¦Š³¬
+P	css:S4666·":Unexpected duplicate selector "html", first used at line 7(óàÂ
+V	css:S4666¼";Unexpected duplicate selector "body", first used at line 12(×ŸÌíıÿÿÿÿ
+S	css:S4666Ë"8Unexpected duplicate selector "a", first used at line 45(Î¶¿œûÿÿÿÿ
+S	css:S4666Ù"=Unexpected duplicate selector "figure", first used at line 92(Ú¦¶¯
+U	css:S4666Ü":Unexpected duplicate selector "img", first used at line 86(ô¯÷îüÿÿÿÿ
+T	css:S4666û"9Unexpected duplicate selector "hr", first used at line 95(ÄÈ÷¨øÿÿÿÿ
+€	css:S4666û"eUnexpected duplicate selector "code,
+kbd,
+pre,
+samp", first used at line 104 (no-duplicate-selectors)(êâ­ÿÿÿÿÿ
+Q	css:S4666˜";Unexpected duplicate selector "pre", first used at line 101(½©Ÿú
+S	css:S4666Ì"=Unexpected duplicate selector "table", first used at line 182(úíÀò
+V	css:S4666¼"@Unexpected duplicate selector "fieldset", first used at line 167(ÿœ«ã
+T	css:S4666Â">Unexpected duplicate selector "legend", first used at line 172(Öİ¬Î
+g	css:S4666Ó"LUnexpected duplicate selector "input[type="search"]", first used at line 157(Š”ı€ÿÿÿÿÿ
+—	css:S4666Ø"|Unexpected duplicate selector "input[type="radio"],
+input[type="checkbox"]", first used at line 146 (no-duplicate-selectors)(£­‘Şøÿÿÿÿ
+g	css:S4666ª"LUnexpected duplicate selector "input[type="search"]", first used at line 157(Š”ı€ÿÿÿÿÿ
+¶	css:S4666š" Unexpected duplicate selector ".btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default", first used at line 3078 (no-duplicate-selectors)(£ı‹u
+¶	css:S4666Ó" Unexpected duplicate selector ".btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary", first used at line 3135 (no-duplicate-selectors)(ˆûÆS
+¼	css:S4666Œ" Unexpected duplicate selector ".btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success", first used at line 3192 (no-duplicate-selectors)(õöÚ ÿÿÿÿÿ
+³	css:S4666Å"—Unexpected duplicate selector ".btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info", first used at line 3249 (no-duplicate-selectors)(´ÙÔÂüÿÿÿÿ
+¶	css:S4666ş" Unexpected duplicate selector ".btn-warning:active,
+.btn-warning.active,
+.open > .dropdown-toggle.btn-warning", first used at line 3306 (no-duplicate-selectors)(Ö×”j
+¹	css:S4666·"Unexpected duplicate selector ".btn-danger:active,
+.btn-danger.active,
+.open > .dropdown-toggle.btn-danger", first used at line 3363 (no-duplicate-selectors)(ÓÖ‘Áşÿÿÿÿ
+t	css:S4666æ"YUnexpected duplicate selector ".nav-tabs.nav-justified > li > a", first used at line 4053(ÂÂªßûÿÿÿÿ
