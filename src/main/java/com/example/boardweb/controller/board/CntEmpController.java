@@ -18,10 +18,10 @@ public class CntEmpController extends Controller {
         }
         int no = Integer.parseInt(strTemp);
 
-        EmpathyBean emp = (EmpathyBean) BoardListService.getInst().getEmp(no, true);
+        EmpathyBean emp = (EmpathyBean) BoardListService.getInst().getEmp(no);
         if(emp == null){
             BoardListService.getInst().insertEmp(no);
-            emp = (EmpathyBean) BoardListService.getInst().getEmp(no, true);
+            emp = (EmpathyBean) BoardListService.getInst().getEmp(no);
         }
 
         String msg = emp.getCnt_like() + "," + emp.getCnt_dislike();

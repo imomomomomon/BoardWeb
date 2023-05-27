@@ -3,8 +3,8 @@ package com.example.boardweb.component;
 import com.example.boardweb.controller.Controller;
 import com.example.boardweb.controller.board.*;
 import com.example.boardweb.controller.login.LoginController;
-import com.example.boardweb.controller.login.registerController;
-import com.example.boardweb.controller.session.sessionController;
+import com.example.boardweb.controller.login.RegisterController;
+import com.example.boardweb.controller.session.SessionController;
 
 public class ControllerMapper {
     private ControllerMapper() {
@@ -50,10 +50,10 @@ public class ControllerMapper {
                 bc = new LoginController();
                 break;
             case "regUser":
-                bc = new registerController();
+                bc = new RegisterController();
                 break;
             case "session":
-                bc = new sessionController();
+                bc = new SessionController();
                 break;
         }
 

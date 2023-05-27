@@ -1,4 +1,4 @@
-package com.example.boardweb.dao.board;
+package com.example.boardweb.dao.board.BoardBean;
 
 import com.example.boardweb.dao.Dao;
 import org.apache.ibatis.session.SqlSession;

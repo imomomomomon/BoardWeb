@@ -1,6 +1,10 @@
 package com.example.boardweb.service;
 
 import com.example.boardweb.dao.board.*;
+import com.example.boardweb.dao.board.EmphathyBean.GetEmpDao;
+import com.example.boardweb.dao.board.EmphathyBean.InsertEmpDao;
+import com.example.boardweb.dao.board.EmphathyBean.UpdateEmpDao;
+import com.example.boardweb.dao.board.BoardBean.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,8 +34,8 @@ public class BoardListService {
     public void UpdateBoardInfo(HashMap<String,Object> map){
         UpdateDao.getInst().UpdateBoardInfo(map);
     }
-    public Object getEmp(int no,boolean isCnt ){
-        return GetEmpDao.getInst().getEmp(no,isCnt);
+    public Object getEmp(int no){
+        return GetEmpDao.getInst().getEmp(no);
     }
     public void insertEmp(int no) { InsertEmpDao.getInst().insertEmp(no); }
     public void updateEmp(Object obj) {

@@ -110,16 +110,15 @@
 				}
 			});
 		}
-		function setEmp(flag) {
+		function setEmpathy(flag) {
 			let infoNo = ${param.infoNo};
 			$.ajax({
 				url:'${pageContext.request.contextPath}/getEmp.do',
 				type:'POST',
-				data:{'cmd':'getEmp','infoNo':infoNo,
-					'id':'test1','flag':flag},
+				data:{'cmd':'getEmp','infoNo':infoNo,'flag':flag},
 				success:function(data){
-					if(data == 'true')
-						getEmpathyCnt();
+					getEmpathyCnt();
+					console.log(data);
 				},error:function(){
 					console.log('error : Get Empathy');
 				}
@@ -186,11 +185,11 @@
 				<span id="span_board-contents" class="board-contents">null</span>
 				<div id="span_board-image"></div>
 				<p style="text-align: center; margin-top: 30px">
-					<button class="btn btn-success" onclick="setEmp('like')">
+					<button class="btn btn-success" onclick="setEmpathy('like')">
 						<i class="glyphicon glyphicon-thumbs-up"></i>
 						<span class="span_like">0</span><span>공감</span>
 					</button>
-					<button class="btn btn-warning" onclick="setEmp('dislike')">
+					<button class="btn btn-warning" onclick="setEmpathy('dislike')">
 						<i class="glyphicon glyphicon-thumbs-down"></i>
 						<span class="span_dislike">0</span><span>비공감</span>
 					</button>

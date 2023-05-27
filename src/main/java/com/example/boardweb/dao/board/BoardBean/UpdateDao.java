@@ -1,21 +1,25 @@
-package com.example.boardweb.dao.board;
+package com.example.boardweb.dao.board.BoardBean;
 
 import com.example.boardweb.dao.Dao;
 import org.apache.ibatis.session.SqlSession;
 
-public class InsertEmpDao extends Dao {
-    public InsertEmpDao() {
+import java.util.HashMap;
+
+public class UpdateDao extends Dao {
+    private UpdateDao() {
         super();
     }
-    private static InsertEmpDao inst = null;
-    public static InsertEmpDao getInst() {
-        if(inst == null) inst = new InsertEmpDao();
+
+    private static UpdateDao inst = null;
+    public static UpdateDao getInst() {
+        if(inst == null) inst = new UpdateDao();
         return inst;
     }
-    public void insertEmp(int no) {
+
+    public void UpdateBoardInfo(HashMap<String,Object> map) {
         SqlSession sqlSession = sessionFactory.openSession();
         try {
-            sqlSession.selectOne("com.example.boardweb.bean.insertEmp",no);
+            sqlSession.update("com.example.boardweb.bean.update",map);
         } catch (Exception e) {
             sqlSession.rollback();
             e.printStackTrace();

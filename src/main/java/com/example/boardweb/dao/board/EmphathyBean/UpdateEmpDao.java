@@ -1,25 +1,23 @@
-package com.example.boardweb.dao.board;
+package com.example.boardweb.dao.board.EmphathyBean;
 
 import com.example.boardweb.dao.Dao;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.HashMap;
-
-public class UpdateDao extends Dao {
-    private UpdateDao() {
+public class UpdateEmpDao extends Dao {
+    private UpdateEmpDao() {
         super();
     }
-
-    private static UpdateDao inst = null;
-    public static UpdateDao getInst() {
-        if(inst == null) inst = new UpdateDao();
+    private static UpdateEmpDao inst = null;
+    public static UpdateEmpDao getInst() {
+        if(inst == null) inst = new UpdateEmpDao();
         return inst;
     }
 
-    public void UpdateBoardInfo(HashMap<String,Object> map) {
+    public void updateEmp(Object obj){
         SqlSession sqlSession = sessionFactory.openSession();
+
         try {
-            sqlSession.update("com.example.boardweb.bean.update",map);
+            sqlSession.update("com.example.boardweb.bean.updateEmp",obj);
         } catch (Exception e) {
             sqlSession.rollback();
             e.printStackTrace();
@@ -27,5 +25,6 @@ public class UpdateDao extends Dao {
             sqlSession.commit();
             sqlSession.close();
         }
+
     }
 }

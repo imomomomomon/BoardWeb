@@ -1,4 +1,4 @@
-package com.example.boardweb.dao.board;
+package com.example.boardweb.dao.board.EmphathyBean;
 
 import com.example.boardweb.dao.Dao;
 import org.apache.ibatis.session.SqlSession;
@@ -10,14 +10,11 @@ public class GetEmpDao extends Dao {
         if(inst == null) inst = new GetEmpDao();
         return inst;
     }
-    public Object getEmp(int no,boolean isCnt) {
+    public Object getEmp(int no) {
         SqlSession sqlSession = sessionFactory.openSession();
         Object obj = null;
         try {
-            if(isCnt)
-                obj = sqlSession.selectOne("com.example.boardweb.bean.getCntEmp",no);
-            else
-                obj = sqlSession.selectOne("com.example.boardweb.bean.getEmp",no);
+            obj = sqlSession.selectOne("com.example.boardweb.bean.getEmp",no);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -7,7 +7,7 @@ import com.example.boardweb.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class registerController extends Controller {
+public class RegisterController extends Controller {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         int result = UserService.getInst().registerUser(

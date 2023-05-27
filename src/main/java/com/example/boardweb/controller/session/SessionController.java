@@ -5,7 +5,7 @@ import com.example.boardweb.controller.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class sessionController extends Controller {
+public class SessionController extends Controller {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         String sessionName = request.getParameter("name");
