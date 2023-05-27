@@ -15,6 +15,8 @@ public class SessionController extends Controller {
             case "replace":
                 String value = request.getParameter("value");
                 request.getSession().setAttribute(sessionName,value);
+//                throwingString(response,sessionName+"/"
+//                        +request.getSession().getAttribute(sessionName));
                 break;
             case "delete":
                 request.getSession().removeAttribute(sessionName);

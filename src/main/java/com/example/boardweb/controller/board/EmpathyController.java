@@ -15,7 +15,7 @@ public class EmpathyController extends Controller {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         String id = (String)request.getSession().getAttribute("id");
-        if(id == null && id == "") return;
+        if(id == null || id == "") return;
 
         String strflag = request.getParameter("flag");
         boolean isLike = strflag.equalsIgnoreCase("like");

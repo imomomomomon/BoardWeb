@@ -41,34 +41,39 @@
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/boradList.js"></script>
 	<script type="text/javascript">
-		let state;
+		let gState;
+		let gCategory;
+		let gSearch;
 		$(function () {
 			//아이디 확인
 			let id = '${sessionScope.id}';
 			if(id === '')
 				$('a#a_write').hide();
 
+			//검색값 확인(만약 검색을 하고 페이지이동을 할 시)
+			gCategory = "${sessionScope.category}";
+			gSearch = "${sessionScope.search}";
+
 			getCategoryList();
 			{
-				state = "${sessionScope.state}";
-				if(state === "") {
-					state = "all";
+				gState = "${sessionScope.state}";
+				console.log(gState);
+				if(gState === "" || gState === "all") {
+					gState = "all";
 					selectList();
 				}
-				else if(state === "search") {
-					const category = "${sessionScope.category}";
-					const search = "${sessionScope.search}";
-					getPageBean(null,category,search);
+				else if(gState === "search") {
+					getPageBean(null,gCategory,gSearch);
 				}
 			}
 		})
 		function btnList() {
-			state = "all";
+			gState = "all";
 			setSessionState("all");
 			selectList(1);
 		}
 		function btnSearch() {
-			state = "search";
+			gState = "search";
 			setSessionState("search");
 			selectList();
 		}
@@ -84,6 +89,19 @@
 				}
 			});
 		}
+		function setSessionValue(name,value) {
+			$.ajax({
+				url:'${pageContext.request.contextPath}/session.do',
+				type:'POST',
+				data:{'cmd':'session','name':name,'action':'replace',
+					'value':value},
+				success:function(data){
+					// console.log(data);
+				},error:function(){
+					console.log('error : Set SessionValue');
+				}
+			});
+		}
 		function btnInsert() {
 			location.href = "${pageContext.request.contextPath}/jsp/write.jsp";
 		}
@@ -96,10 +114,8 @@
 			}
 		}
 		function btn_selectList(page) {
-			if(state === "search"){
-				const category = "${sessionScope.category}";
-				const search = "${sessionScope.search}";
-				getPageBean(page,category,search);
+			if(gState === "search"){
+				getPageBean(page,gCategory,gSearch);
 			} else {
 				getPageBean(page);
 			}
@@ -108,17 +124,19 @@
 			location.href = "${pageContext.request.contextPath}/jsp/info.jsp?infoNo="+num;
 		}
 		function selectList(page) {
-			if(state === "search"){
+			if(gState === "search"){
 				setValueForSearching(page);
 			} else {
 				getPageBean(page);
 			}
 		}
 		function setValueForSearching(page) {
-			let category = document.getElementById("section_category").value;
-			let search = document.getElementById("input_search").value;
-			if(page == null) getPageBean(1,category,search);
-			else getPageBean(page,category,search);
+			gCategory = document.getElementById("section_category").value;
+			setSessionValue("category",gCategory);
+			gSearch = document.getElementById("input_search").value;
+			setSessionValue("Search",gSearch);
+			if(page == null) getPageBean(1,gCategory,gSearch);
+			else getPageBean(page,gCategory,gSearch);
 		}
 		function getPageBean(page,category,search) {
 			$.ajax({
